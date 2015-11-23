@@ -20,7 +20,7 @@ function redirect($page) {
     header("Location: $page");
     die();
 }
-
+/*
 function __autoload($className) {
     if (file_exists('classes/' . $className . '.php')) {
         require_once 'classes/' . $className . '.php';
@@ -28,6 +28,7 @@ function __autoload($className) {
     }
     return false;
 }
+*/
 
 function dbRequired($dbname) {
 
