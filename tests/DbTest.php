@@ -91,6 +91,29 @@ class DbTest extends \PHPUnit_Extensions_Database_TestCase
 
     }
 
+    public function testDbCommentsSpecific()
+    {
+
+        $user = new Users();
+        list($method, $reflection) = $this->mockMethod($user, 'getUserCommentsAction');
+
+        $property = $reflection->getProperty('dbInstance');
+        $property->setAccessible(true);
+        $property->setValue($user, $this->pdo);
+
+        $parameters = array(1,4);
+        $comments = $method->invokeArgs($user, $parameters);
+        $expected = 1;
+        $this->assertEquals($expected, count($comments));
+
+        $parameters = array(1,7);
+        $comments = $method->invokeArgs($user, $parameters);
+        $expected = 0;
+        $this->assertEquals($expected, count($comments));
+
+
+    }
+
     public function mockMethod(&$object, $methodName)
     {
 
