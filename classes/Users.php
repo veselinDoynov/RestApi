@@ -5,7 +5,7 @@ class Users {
     private $dbInstance;
 
     public function __construct() {
-        $this->dbInstance = DB::getInstance('dopamine');
+        $this->dbInstance = DB::getInstance('apidb');
     }
 
     public function getUser($parameters = array()) {

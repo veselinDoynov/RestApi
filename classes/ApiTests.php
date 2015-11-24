@@ -26,7 +26,9 @@ class ApiTests {
         $this->testGetUserAllComments();
         $this->testGetUserAllCommentsCounts();
         $this->testRequestedMethodValidity();
+        $this->runPhpUnit();
         $this->clearTestDataBase();
+
     }
 
     private function testGetIncorrecRequestedUri() {
@@ -302,6 +304,15 @@ class ApiTests {
         $actual = json_decode($router->match(), true);
         $testStatus = $this->getStatus($expected, $actual);
         return $testStatus;
+    }
+
+    private function runPhpUnit(){
+        echo 'Unit tests result:';
+        echo '<br/>';
+        echo exec('phpunit --debug');
+        echo '<br/>';
+        echo '<br/>';
+
     }
 
 }
