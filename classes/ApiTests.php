@@ -307,12 +307,8 @@ class ApiTests {
     }
 
     private function runPhpUnit(){
-        echo 'Unit tests result:';
-        echo '<br/>';
-        echo exec('phpunit --debug');
-        echo '<br/>';
-        echo '<br/>';
-
-    }
+        echo 'Unit tests result:</br>';
+        echo '<pre>'.shell_exec('phpunit --debug').'</pre>';
+     }
 
 }
